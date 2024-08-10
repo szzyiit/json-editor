@@ -1,0 +1,86 @@
+{
+    "title": "节点",
+    "type": "object",
+    "required": ["名称", "帮助", "日期", "参数", "示例"],
+    "properties": {
+        "名称": {
+            "type": "string",
+            "default": "默认名称",
+            "minLength": 4,
+            "maxLength": 60,
+            "options": {
+                "hidden": false,
+                "inputAttributes": {
+                    "placeholder": "输入名称"
+                }
+            }
+        },
+        "帮助": {
+            "type": "string",
+            "default": "帮助信息"
+        },
+        "日期": {
+            "type": "string",
+            "format": "date"
+        },
+        "参数": {
+            "title": "节点参数",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "参数": {
+                        "type": "string",
+                        "default": "默认参数"
+                    },
+                    "单位": {
+                        "type": "string",
+                        "default": "单位"
+                    },
+                    "类型": {
+                        "type": "string",
+                        "enum": ["字符串", "双精度", "布尔", "整数"]
+                    },
+                    "参数名称": {
+                        "type": "string"
+                    },
+                    "值": {
+                        "type": "string"
+                    },
+                    "子参数": {
+                        "title": "子参数",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "子参数": {
+                                    "type": "string"
+                                },
+                                "子参数值": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "示例": {
+            "title": "示例JSON数据",
+            "type": "object",
+            "properties": {
+                "输入": {
+                    "title": "输入",
+                    "type": "string",
+                    "default": "输入示例"
+                },
+                "输出": {
+                    "title": "输出",
+                    "type": "string",
+                    "default": "输出示例"
+                }
+            }
+        }
+    }
+}
